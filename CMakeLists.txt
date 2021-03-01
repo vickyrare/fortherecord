@@ -1,4 +1,3 @@
-cmake_minimum_required(VERSION 3.19)
 project(ForTheRecord)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -28,9 +27,9 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
         EXCLUDE_FROM_ALL)
 
 add_library( ForTheRecordLibrary STATIC ForTheRecord/NumberFrequencyManager.cpp )
-add_executable( ForTheRecord ForTheRecord/main.cpp )
-target_link_libraries( ForTheRecord ForTheRecordLibrary )
+add_executable( app ForTheRecord/main.cpp )
+target_link_libraries( app ForTheRecordLibrary pthread)
 
-include_directories(C:/Users/waqqas.sharif/CLionProjects/ForTheRecord/ForTheRecord)
-add_executable( ForTheRecordTest ForTheRecordTest/tests.cpp )
-target_link_libraries( ForTheRecordTest ForTheRecordLibrary gtest_main )
+include_directories(./ForTheRecord)
+add_executable( test ForTheRecordTest/tests.cpp )
+target_link_libraries( test ForTheRecordLibrary gtest_main )

@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <thread>
 #include <mutex>
+#include <cmath>
 
 #include "timer.h"
 
