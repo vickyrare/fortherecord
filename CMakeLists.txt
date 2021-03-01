@@ -28,7 +28,11 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
 
 add_library( ForTheRecordLibrary STATIC ForTheRecord/NumberFrequencyManager.cpp )
 add_executable( app ForTheRecord/main.cpp )
-target_link_libraries( app ForTheRecordLibrary pthread)
+IF (WIN32)
+    target_link_libraries( app ForTheRecordLibrary)
+ELSE()
+    target_link_libraries( app ForTheRecordLibrary pthread)
+ENDIF()
 
 include_directories(./ForTheRecord)
 add_executable( test ForTheRecordTest/tests.cpp )
